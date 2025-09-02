@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 import os
-
+from flask_cors import CORS
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
@@ -12,6 +12,7 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # ✅ This enables CORS for all routes
 
 # Store sessions in memory
 session_store = {}
@@ -86,3 +87,4 @@ def chat():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
