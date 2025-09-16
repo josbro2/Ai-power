@@ -12,8 +12,6 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # ✅ This enables CORS for all routes
-
 # Store sessions in memory
 session_store = {}
 
@@ -87,4 +85,5 @@ def chat():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
 
